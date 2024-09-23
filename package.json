@@ -1,0 +1,20 @@
+{
+  "name": "backendcrudcafe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongoDB",
+    "ExpressJS",
+    "Mongoose"
+  ],
+  "author": "Hamada Santino",
+  "license": "ISC",
+  "description": "operaciones del CRUD para el backend del proyecto crud Cafe",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
