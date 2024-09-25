@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start":"node index.js",
+    "start": "node index.js",
     "dev": "node --watch index.js"
   },
   "keywords": [
@@ -16,6 +16,8 @@
   "license": "ISC",
   "description": "operaciones del CRUD para el backend del proyecto crud Cafe",
   "dependencies": {
-    "express": "^4.21.0"
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "morgan": "^1.10.0"
   }
 }
