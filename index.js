@@ -3,6 +3,8 @@ import cors from "cors";
 import morgan from "morgan";
 import path from "path"
 import { fileURLToPath } from "url";
+import "./src/database/databaseConnection.js"
+
 //1- configurar un puerto
 
 const app = express();
