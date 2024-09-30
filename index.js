@@ -4,6 +4,7 @@ import morgan from "morgan";
 import path from "path"
 import { fileURLToPath } from "url";
 import "./src/database/databaseConnection.js"
+import productoRouter from "./src/routes/productos.routes.js";
 
 //1- configurar un puerto
 
@@ -29,7 +30,4 @@ const __dirname = path.dirname(__filename)
 app.use(express.static(path.join(__dirname,"public")))//configuramos un archivo estatico para ver el index en la ruta principal
 //3- configurar las rutas
 
-app.get("/prueba", (req, res, next) => {
-  //   console.log("desde la funcion de prueba")
-  res.send("desde el backend");
-});
+app.use('/api',productoRouter)
