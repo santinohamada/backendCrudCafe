@@ -62,3 +62,38 @@ export const listarProducto = async (req, res) => {
     });
   }
 };
+
+
+export const borrarProducto = async(req,res)=>{
+    try {
+        const producto = await Producto.findById(req.params.id)
+        console.log(req.params.id)
+        if(!producto){
+          return res.status(404).json({message:"No existe el id enviado"})
+        }
+
+        await Producto.findByIdAndDelete(req.params.id)
+        res.status(200).json({mensaje:"El producto fue eliminado correctamente"})
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({message:"ocurrio un error al intentar borrar un producto"})
+    }
+}
+
+export const editarProducto = async(req,res)=>{
+  try {
+    //necesito el id y el body
+    //validar los datos del body
+    //pedir a la bd que busque si esta el id, sino envio codigo de error
+    const productoBuscado = await Producto.findById(req.params.id)
+    if(!productoBuscado){
+      return res.status(404).json({mensaje:"El producto no fue encontrado"})
+    }
+    const productoEditado = await Producto.findByIdAndUpdate(req.params.id,req.body)
+    console.log(productoEditado)
+    res.status(200).json({mensaje:"el producto fue editado correctamente"})
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({mensaje:"Ocurrio un error al intentar editar el producto"})
+  }
+}
