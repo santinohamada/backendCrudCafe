@@ -1,11 +1,19 @@
 import Producto from "../database/model/producto.js";
+import { validationResult } from "express-validator";
 export const leerPrueba = (req, res) => {
   res.send("desde el backend");
 };
 export const crearProducto = async (req, res) => {
   try {
     //validar los datos para crear el prod
+    const errors = validationResult(req)
+    //errors.isEmpty()=>true: no se produjeron errores
     //pedir al modelo producto que genere uno nuevo
+
+    //quiero saber si hay errores
+
+    if(!errors.isEmpty()) return res.status(400).json(errors.array())
+
     console.log(req.body);
     const productoNuevo = new Producto(req.body);
     //guardo en la bd
